@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Display</title>
+</head>
+<body>
+  <button id="showPassword">Show Password</button>
+  <div id="password"></div>
+
+  <script>
+    // Get the button and password div elements
+    const button = document.getElementById("showPassword");
+    const passwordDiv = document.getElementById("password");
+
+    // Add an event listener to the button
+    button.addEventListener("click", async () => {
+      // Fetch the JSON file from the provided URL
+      const response = await fetch("https://raw.githubusercontent.com/Solara-Dev-Team/FGYLPKYJJLKGHL-J-KMLVPJIOKXDHJSFGJK/main/diojfjkojjfeiowwjfiojuesioujfiodsujiofguisdugiusdiguiouioewusugiofui.json");
+
+      // Parse the JSON data
+      const jsonData = await response.json();
+
+      // Generate a random number between 1 and 51 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 51) + 1;
+
+      // Store the selected password in a variable
+      const password = jsonData["password" + randomNumber];
+
+      // Display the password on the webpage
+      passwordDiv.innerHTML = password;
+    });
+  </script>
+</body>
+</html>
